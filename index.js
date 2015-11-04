@@ -8,7 +8,7 @@ function signBlob(key, blob) {
 module.exports = function(options) {
     options = options || { secret: '' };
 
-    if (typeof options.secret != 'string' || options.secret === '')
+    if (typeof options.secret != 'string')
         throw new TypeError('must provide a \'secret\' option');
 
     return bodyParser.json({
