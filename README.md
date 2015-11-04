@@ -21,7 +21,7 @@ app.post('/hooks/gitbook/', gitbookMiddleware, function(req, res) {
     // Only respond to gitbook publish events
     if (req.headers['x-gitbook-event'] != 'publish') return res.status(200).end();
 
-    var payload = req.body;
+    var payload = req.body.payload;
 
     // Do something
 });
