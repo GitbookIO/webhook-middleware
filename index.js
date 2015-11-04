@@ -2,7 +2,7 @@ var bodyParser = require('body-parser');
 var crypto = require('crypto');
 
 function signBlob(key, blob) {
-    return 'sha1=' + crypto.createHmac('sha1', key).update(blob).digest('hex');
+    return 'sha1=' + crypto.createHmac('sha1', key).update(blob, 'utf8').digest('hex');
 }
 
 module.exports = function(options) {
