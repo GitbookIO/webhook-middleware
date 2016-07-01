@@ -2,7 +2,7 @@
     "name": "gitbook-webhook-middleware",
     "description": "Express middleware to verify GitBook webhooks",
     "main": "index.js",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "dependencies": {
         "body-parser": "~1.14.1"
     },
