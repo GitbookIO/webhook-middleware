@@ -22,11 +22,14 @@ module.exports = function(options) {
             if (!req.headers['x-gitbook-delivery'])
                 throw new Error('No X-GitBook-Delivery found on request');
 
-            var received_sig = req.headers['x-gitbook-signature'];
-            var computed_sig = signBlob(options.secret, buffer);
+            // Only validate if secret was provided
+            if(options.secret) {
+                var received_sig = req.headers['x-gitbook-signature'];
+                var computed_sig = signBlob(options.secret, buffer);
 
-            if (received_sig != computed_sig) {
-                throw new Error('Invalid Signature');
+                if (received_sig != computed_sig) {
+                    throw new Error('Invalid Signature');
+                }
             }
         }
     });
